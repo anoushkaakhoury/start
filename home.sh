@@ -1,9 +1,11 @@
 #!/bin/bash 
-if [ -d "$@" ] || [ -f "$@" ]
+if [ -d "$1" ] || [ -f "$1" ]
 then
+	cd $1
+
        if [ -d ];
 	then
-	       	echo "No Of directories are $( find -type d | wc -l)"
+		echo "No Of directories are $(( $(find . -maxdepth 1 -type d -print | wc -l) -1))"
 		echo "No of files in those directories are $( find -type f | wc                         -l)" 
 	else
 		echo "No. of files are $( find -type f | wc -l)"
